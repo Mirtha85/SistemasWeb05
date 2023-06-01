@@ -1,6 +1,5 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<!--listo-->
 
 
 <section class="carousel slide" id="hero-carousel" data-bs-ride="carousel">
@@ -60,5 +59,20 @@
     </button>
 </section>
 
+    <div class="text-center">
+        <img src="./imagenes/JJ.jpg" style="max-width: 500px" class="logo-mark mx-auto" />
+        <h1>Los calzados mas cotizados</h1>
+        <h5>LOS TENIS JORDAN</h5>
+
+        <div class="row pies-of-the-week">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (var pie in Model.PiesOfTheWeek)
+                {
+                    <partial name="_PieCard" model="pie" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
 <!--particulas de js-->
 <script src="~js/particles.js"></script>

@@ -10,8 +10,8 @@ using SistemasWeb01.Models;
 namespace SistemasWeb01.Migrations
 {
     [DbContext(typeof(BethesdaPieShopDbContext))]
-    [Migration("20230516172623_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230531134225_AddShopingAten")]
+    partial class AddShopingAten
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,6 +80,28 @@ namespace SistemasWeb01.Migrations
                     b.ToTable("Pies");
                 });
 
+            modelBuilder.Entity("SistemasWeb01.Models.ShoppingCartItem", b =>
+                {
+                    b.Property<int>("ShoppingCartItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PieId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ShoppingCartItemId");
+
+                    b.HasIndex("PieId");
+
+                    b.ToTable("ShoppingCartItems");
+                });
+
             modelBuilder.Entity("SistemasWeb01.Models.Pie", b =>
                 {
                     b.HasOne("SistemasWeb01.Models.Category", "Category")
@@ -89,6 +111,17 @@ namespace SistemasWeb01.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SistemasWeb01.Models.ShoppingCartItem", b =>
+                {
+                    b.HasOne("SistemasWeb01.Models.Pie", "Pie")
+                        .WithMany()
+                        .HasForeignKey("PieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pie");
                 });
 
             modelBuilder.Entity("SistemasWeb01.Models.Category", b =>
