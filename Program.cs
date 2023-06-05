@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 //trabajo....
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IPieRepository, PieRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>(); //anclado con el orderRepositoy
 
 //nuevo servicio al carro
 builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sp => ShoppingCart.GetCart(sp));
