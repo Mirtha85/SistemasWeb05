@@ -46,7 +46,7 @@ namespace SistemasWeb01.Controllers
 
         public IActionResult CheckoutComplete()
         {
-            ViewBag.CheckoutCompleteMessage = "Thanks for your order. You'll soon enjoy our delicious pies!";
+            ViewBag.CheckoutCompleteMessage = "La compra fue realizada con exito, espere la llamada para recivir el producto!";
             return View();
         }
     }
