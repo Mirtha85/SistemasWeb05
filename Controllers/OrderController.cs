@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SistemasWeb01.Models;
 
 //nuevo controller
 
 namespace SistemasWeb01.Controllers
 {
+    [Authorize ]
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;
@@ -42,8 +44,6 @@ namespace SistemasWeb01.Controllers
             }
             return View(order);
         }
-
-
         public IActionResult CheckoutComplete()
         {
             ViewBag.CheckoutCompleteMessage = "La compra fue realizada con exito, espere la llamada para recivir el producto!";

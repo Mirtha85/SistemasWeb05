@@ -35,6 +35,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Pie" asp-action="list">Tenis</a>
                         </li>
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
@@ -42,6 +43,7 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+            @RenderSection("Scripts", required: false)
         </main>
     </div>
 
@@ -50,9 +52,9 @@
             &copy; 2023 - jimenez paredes jose alejandro - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false)*@
 </body>
 </html>
