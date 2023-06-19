@@ -48,6 +48,9 @@ namespace SistemasWeb01.Controllers
 
             return View(pie);
         }
-
+        public IActionResult Search()
+        {
+            return View();
+        }
     }
 }
