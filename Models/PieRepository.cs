@@ -36,9 +36,7 @@ namespace SistemasWeb01.Models
         {
             return _bethesdaPieShopDbContext.Pies.Where(p => p.Name.Contains(searchQuery));
         }
-        //public IEnumerable<Pie> SearchPies(string searchQuery)
-        //{
-        //    return _bethesdaPieShopDbContext.Pies.Where(p => p.Name.Contains(searchQuery));
-        //}
+       
+
     }
 }
