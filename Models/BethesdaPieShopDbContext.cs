@@ -14,6 +14,8 @@ namespace SistemasWeb01.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Pie> Pies { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<Contacto> Contactosdbcontex { get; set; }
+
         //verificar
         public DbSet<Order>Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
