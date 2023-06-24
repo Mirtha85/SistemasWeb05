@@ -14,13 +14,7 @@ namespace SistemasWeb01.Controllers
             _pieRepository = pieRepository;
             _categoryRepository = categoryRepository;
         }
-        //public IActionResult List()
-        //{
-        //    //ViewBag.CurrentCategory = "Cheese cakes";
-        //    //return View(_pieRepository.AllPies);
-        //    PieListViewModel pieListViewModel = new PieListViewModel(_pieRepository.AllPies, "Cheese cakes");
-        //    return View(pieListViewModel);
-        //}
+       
         public ViewResult List(string category)
         {
             IEnumerable<Pie> pies;
@@ -52,7 +46,5 @@ namespace SistemasWeb01.Controllers
         {
             return View();
         }
-
-
     }
 }
