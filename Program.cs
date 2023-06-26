@@ -3,6 +3,7 @@ using SistemasWeb01;
 using SistemasWeb01.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Text.Json.Serialization;
+using SistemasWeb01.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("BethesdaPieShopDbContextConnection") ?? throw
