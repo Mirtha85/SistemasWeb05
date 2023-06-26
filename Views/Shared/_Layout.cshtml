@@ -3,20 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - JORDAN</title>
+    <title>@ViewData["Title"]  JORDAN</title>
+    <link rel="icon" type="image/jpg" href="./imagenes/JJ.jpg" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-
+    <script src="~/lib/jquery/jquery.js"></script>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SistemasWeb01.styles.css" asp-append-version="true" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                    <i class="bi bi-truck"></i>
+                    <img src="~/imagenes/JJ.jpg" width="200" height="90" class="d-inline-block align-top mb-2 mt-1"
+                         alt="Jordan Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggl e="collapse" data-bs-target="#navbarCollapse"
                         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,15 +28,28 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="SNosotros">Sobre Nosotros</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">Historia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pie" asp-action="list">TENIS</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pie" asp-action="list">Tenis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contacto" asp-action="CreateContacto"> Contacto</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Pie" asp-action="Search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
@@ -41,17 +57,27 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+            @RenderSection("Scripts", required: false)
         </main>
     </div>
 
+
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - jimenez paredes jose alejandro - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - Jimenez Alejandro 
+            <a href="https://www.facebook.com/profile.php?id=100080511017920&mibextid=ZbWKwL" target="blank" rel="noopener noreferrer">
+                <i class="bi bi-facebook">  </i>
+            </a>
+            <a href="https://instagram.com/hey_alez?igshid=MzNlNGNkZWQ4Mg==" target="blank" rel="noopener noreferrer">
+                <i class="bi bi-instagram">  </i>
+            </a>
+            <a href="https://wa.me/qr/AB4I335DUSIAP1" target="blank" rel="noopener noreferrer">
+                <i class="bi bi-whatsapp">  </i>
+            </a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

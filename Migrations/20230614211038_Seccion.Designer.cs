@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemasWeb01.Models;
 
@@ -10,9 +11,10 @@ using SistemasWeb01.Models;
 namespace SistemasWeb01.Migrations
 {
     [DbContext(typeof(BethesdaPieShopDbContext))]
-    partial class BethesdaPieShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230614211038_Seccion")]
+    partial class Seccion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -213,24 +215,6 @@ namespace SistemasWeb01.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SistemasWeb01.Models.Categoria", b =>
-                {
-                    b.Property<int>("CategoriaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("DescripcionCategoria")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("NombreCategoria")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("CategoriaId");
-
-                    b.ToTable("Categoriasdb");
-                });
-
             modelBuilder.Entity("SistemasWeb01.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -247,30 +231,6 @@ namespace SistemasWeb01.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("SistemasWeb01.Models.Contacto", b =>
-                {
-                    b.Property<int>("ContactoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("CorreoElectronico")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Mensaje")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("NombreContacto")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Telefono")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ContactoId");
-
-                    b.ToTable("Contactosdbcontex");
                 });
 
             modelBuilder.Entity("SistemasWeb01.Models.Order", b =>
@@ -408,37 +368,6 @@ namespace SistemasWeb01.Migrations
                     b.ToTable("Pies");
                 });
 
-            modelBuilder.Entity("SistemasWeb01.Models.Producto", b =>
-                {
-                    b.Property<int>("ProductoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CategoriaId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("DescripcionProducto")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ImagenProducto")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("NombreProducto")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("PrecioProducto")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Talla")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("ProductoId");
-
-                    b.HasIndex("CategoriaId");
-
-                    b.ToTable("Productosdb");
-                });
-
             modelBuilder.Entity("SistemasWeb01.Models.ShoppingCartItem", b =>
                 {
                     b.Property<int>("ShoppingCartItemId")
@@ -542,17 +471,6 @@ namespace SistemasWeb01.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("SistemasWeb01.Models.Producto", b =>
-                {
-                    b.HasOne("SistemasWeb01.Models.Categoria", "Categoria")
-                        .WithMany("Productos")
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Categoria");
-                });
-
             modelBuilder.Entity("SistemasWeb01.Models.ShoppingCartItem", b =>
                 {
                     b.HasOne("SistemasWeb01.Models.Pie", "Pie")
@@ -562,11 +480,6 @@ namespace SistemasWeb01.Migrations
                         .IsRequired();
 
                     b.Navigation("Pie");
-                });
-
-            modelBuilder.Entity("SistemasWeb01.Models.Categoria", b =>
-                {
-                    b.Navigation("Productos");
                 });
 
             modelBuilder.Entity("SistemasWeb01.Models.Category", b =>
