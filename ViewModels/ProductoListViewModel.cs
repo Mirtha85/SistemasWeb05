@@ -16,5 +16,7 @@ namespace SistemasWeb01.ViewModels
             Productos = _producto;
             productoClass = _productoClass;
         }
+        public ProductoListViewModel() { }
     }
 }
+

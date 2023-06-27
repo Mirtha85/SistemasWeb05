@@ -16,11 +16,20 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-text">@line.Amount x @line.Pie.Name</h5>
-                            <div class="d-flex justify-content-between">
-                                <h6>@line.Pie.ShortDescription</h6>
+                            <h5 class="card-title">@line.Pie.Name</h5>
+                            <p class="card-text">@line.Pie.ShortDescription</p>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <span class="quantity-label">Cantidad:</span>
+                                <span class="quantity-value">@line.Amount</span>
+                            </h6>
+
+
                                 <h2>@line.Pie.Price.ToString("c")</h2>
-                            </div>
+                                <form method="post" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" class="form-remove">
+                                    <input type="hidden" name="productoId" value="@line.Pie.PieId" />
+                                    <button type="submit" class="btn btn-outline-danger btn-remove"><i class="bi bi-trash"></i> Remove</button>
+                                </form>
+                            
                         </div>
                     </div>
                 </div>

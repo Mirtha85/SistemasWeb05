@@ -1,10 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@* *@
-
+﻿
 @model IEnumerable<SistemasWeb01.Models.Producto>
 
 @{
@@ -13,14 +7,20 @@
 <section class="container seccion">
     <h1 class="texto-about fw-bolder text-capitalize">Productos</h1>
 
+    
     <div class="containerpro">
         <p class="btn btn-success">
             <a class="text-white" asp-action="Crear">Crear Producto</a>
         </p>
+
+      
     </div>
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-      
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" 
+    />
+    
+    
+
     <table class="table">
         <thead>
             <tr>
@@ -36,7 +36,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.PrecioProducto)
                 </th>
-                <th></th>
+              
             </tr>
         </thead>
         <tbody>
@@ -44,7 +44,7 @@
             {
                 <tr class="table-row">
                     <td>
-                        <img src="~/imagenes/@item.ImagenProducto" style="width:50px;" />
+                        <img src="~/imagenes/@item.ImagenProducto" style="width:100px;" />
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.NombreProducto)
@@ -55,14 +55,19 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.PrecioProducto)
                     </td>
+                 
                     <td>
                         <a class="btn btn-warning" asp-action="UpdateProducto" asp-route-id="@item.ProductoId">Edit</a>
                     </td>
                     <td>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProductoId">Delete</a>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ProductoId">Details</a>
+                    </td>
+                  
+                    <td>
+                        <a class="btn btn-danger" asp-action="Deletet" asp-route-id="@item.ProductoId">Deletet</a>
                     </td>
                 </tr>
-             }
+            }
         </tbody>
     </table>
 </section>

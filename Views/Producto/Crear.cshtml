@@ -1,48 +1,46 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model ProductoListViewModel
+﻿@model ProductoListViewModel
+
 <section class="container seccion">
-    <h2>Crear Producto</h2>
+<h2>Crear Producto</h2>
 
 
-    <form asp-action="Crear" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label asp-for="productoClass.NombreProducto"></label>
-            <input asp-for="productoClass.NombreProducto" class="form-control" />
-        </div>
+<form asp-action="Crear" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="productoClass.NombreProducto"></label>
+        <input asp-for="productoClass.NombreProducto" class="form-control" />
+    </div>
 
-        <div class="form-group">
-            <label asp-for="productoClass.PrecioProducto"></label>
-            <input asp-for="productoClass.PrecioProducto" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="productoClass.DescripcionProducto"></label>
-            <input asp-for="productoClass.DescripcionProducto" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="productoClass.CategoriaId"></label>
-            <select asp-for="productoClass.CategoriaId" class="form-control">
-                <option value="">Seleccionar una categoría</option>
-                @foreach (var categoria in Model.categorias)
-                {
-                    <option value="@categoria.CategoriaId">@categoria.NombreCategoria</option>
-                }
-            </select>
-        </div>
-        <div id="previewContainer">
-            <img id="preview" src="#" alt="Vista previa de la imagen" />
-        </div>
-        <label for="ImagenProducto">Imagen:</label>
+    <div class="form-group">
+        <label asp-for="productoClass.PrecioProducto"></label>
+        <input asp-for="productoClass.PrecioProducto" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="productoClass.DescripcionProducto"></label>
+        <input asp-for="productoClass.DescripcionProducto" class="form-control" />
+    </div>
 
-        <input accept="Imagen/*" type="file" id="imagen" name="imagen" onchange="actualizarNombreImagen()">
-        <input asp-for="productoClass.ImagenProducto" type="text" id="nombreImagen" class="form-control"> 
+    <div class="form-group">
+        <label asp-for="productoClass.CategoriaId"></label>
+        <select asp-for="productoClass.CategoriaId" class="form-control">
+            <option value="">Seleccionar una categoría</option>
+            @foreach (var categoria in Model.categorias)
+            {
+                <option value="@categoria.CategoriaId">@categoria.NombreCategoria</option>
+            }
+        </select>
+      
+    </div>
+    <div id="previewContainer">
+        <img id="preview" src="#" alt="Vista previa de la imagen" />
+    </div>
+    <label for="ImagenProducto">Imagen:</label>
 
+    <input accept="image/*" type="file" id="imagen" name="imagen" onchange="actualizarNombreImagen()">
+    <input asp-for="productoClass.ImagenProducto" type="text" id="nombreImagen" class="form-control"> 
 
-        <button type="submit" class="btn btn-primary btnGuardar">Crear Producto</button>
-    </form>
+    
+    <button type="submit" class="btn btn-primary btnGuardar">Crear Producto</button>
+</form>
 </section>
 <script>
     function actualizarNombreImagen() {
@@ -60,6 +58,7 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+
     document.querySelector('#imagen').addEventListener('change', function () {
         previewImage(this);
     });
@@ -69,7 +68,7 @@
         display: none;
     }
 
-
+    
     #nombreImagen {
         display: none;
     }

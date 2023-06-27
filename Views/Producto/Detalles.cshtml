@@ -1,0 +1,45 @@
+﻿@*@model Producto
+<h3 class="my-5">@Model.NombreProducto</h3>
+<div class="row gx-5">
+    <img alt="@Model.NombreProducto" src="~/imagenes/@Model.ImagenProducto" class="img-fluid col-5" />
+    <div class="col-7">
+        <h4>@Model.NombreProducto</h4>
+        <p>@Model.DescripcionProducto</p>
+        <h3 class="pull-right">@Model.PrecioProducto.ToString("c")</h3>
+        
+    </div>
+</div>*@
+
+@model SistemasWeb01.Models.Producto
+
+@{
+    ViewData["Title"] = "Details";
+}
+<section class="container seccion">
+    <h1>Detalle</h1>
+
+    <h3>Esto se guardo</h3>
+    <div>
+        <h4>Producto</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NombreProducto)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NombreProducto)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DescripcionProducto)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DescripcionProducto)
+            </dd>
+        </dl>
+
+        <div>
+            <a asp-action="UpdateProducto" asp-route-id="@Model?.ProductoId">Editar</a> |
+            <a asp-action="Index">Atras</a>
+        </div>
+    </div>
+</section>
