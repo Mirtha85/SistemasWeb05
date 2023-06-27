@@ -6,7 +6,7 @@
 
 html {
     font-size: 14px;
-   
+    font-family: 'Indie Flower', cursive;
 }
 
 
@@ -23,6 +23,7 @@ html {
 
 body {
     font-family: 'Indie Flower', cursive;
+    /*font-family: 'Indie Flower', cursive;*/
     margin-bottom: 60px;
     /*background-color: #0b0d0e;*/
 }

@@ -1,35 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-@model Categoria
+﻿@model Categoria
 
 <form asp-action="CreateCategoria" method="post" role="form">
     <section class="container seccion">
-        <h3 class="my-5">
-            Crear Categoria
-        </h3>
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <div class="col-6">
-            <div class="row g-2">
-                <div class="col-12">
-                    <label asp-for="NombreCategoria" class="form-label"></label>
-                    <input asp-for="NombreCategoria" class="form-control" />
-                    <span asp-validation-for="NombreCategoria" class="text-danger"></span>
-                </div>
-                <div class="col-12">
-                    <label asp-for="DescripcionCategoria" class="form-label"></label>
-                    <input asp-for="DescripcionCategoria" class="form-control" />
-                    <span asp-validation-for="DescripcionCategoria" class="text-danger"></span>
-                </div>
-                <div class="mt-2">
-                    <div class="col-md-offset-2 col-md-5">
-                        <input type="submit" class="btn btn-secondary" value="Create Categoria" />
-                    </div>
+    <h3 class="my-5">
+        Crear categoria
+    </h3>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="col-6">
+        <div class="row g-2">
+            <div class="col-12">
+                <label asp-for="NombreCategoria" class="form-label"></label>
+                <input asp-for="NombreCategoria" class="form-control" />
+                <span asp-validation-for="NombreCategoria" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="DescripcionCategoria" class="form-label"></label>
+                <input asp-for="DescripcionCategoria" class="form-control" />
+                <span asp-validation-for="DescripcionCategoria" class="text-danger"></span>
+            </div>
+
+
+            <div class="mt-2">
+                <div class="col-md-offset-2 col-md-5">
+                    <input type="submit" class="btn btn-secondary" value="Crear Categoria" />
                 </div>
             </div>
         </div>
-    </section>
+
+    </div>
+   </section>
+
 </form>
